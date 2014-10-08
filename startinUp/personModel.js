@@ -11,7 +11,7 @@ var person = new Person({
     name: "UndeffinedName",
     lastName: "UndeffinedLastName",
     age: "UndeffinedAge",
-    education: "UndeffinedSchool"
+    school: "UndeffinedSchool"
 });
 
 console.log(person);

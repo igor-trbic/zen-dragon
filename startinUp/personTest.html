@@ -6,16 +6,16 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"> </script>
 	<script type="text/template" id="person_template">
 		<label>Name:</label>
-		<input type="text" id="input_name" placeholder="Name" value="" />
+		<input type="text" id="input_name" placeholder="Name" value="<%= person.get('name')%>" /><%= date%>
 		<hr/>
 		<label>Last Name:</label>
-		<input type="text" id="input_lastName" placeholder="Last Name" />
+		<input type="text" id="input_lastName" placeholder="Last Name" value="<%= person.get('lastName')%>" />
 		<hr/>
 		<label>Age:</label>
-		<input type="text" id="input_age" placeholder="Age" />
+		<input type="text" id="input_age" placeholder="Age" value="<%= person.get('age')%>" />
 		<hr/>
 		<label>School:</label>
-		<input type="text" id="input_school" placeholder="School" />
+		<input type="text" id="input_school" placeholder="School" value="<%= person.get('school')%>" />
 		<hr/>
 		<input type="button" id="submit_all" value="Submit" />
 		<hr/>
