@@ -2,6 +2,7 @@
 'use strict';
 
 var Person = Backbone.Model.extend({
+
     initialize: function () {
         console.log("Person has been made!");
     }

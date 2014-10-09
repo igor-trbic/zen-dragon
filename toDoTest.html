@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="https://code.jquery.com/jquery-1.8.2.min.js"> </script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"> </script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"> </script>
+
+    <script type="text/template" id="todo_template">
+    <form>
+        <input type="text" placeholder="Enter your todos here!" id="input_todo_list" autofocus value="" />
+        <button id="input_button" >ADD todo</button>
+    </form>
+        <ul id="ToDos">
+            <% _.each(colMod, function(n){ %>
+                <li><%- n.get('element')%></li>
+            <% })%>
+        </ul>
+    <label><a href="#new">Go to new view</a></label>
+    </script>
+
+    <script type="text/template" id="new_template">
+    <h1>Im big head!</h1>
+    <label><a href="">Go to old view</a></label>
+    </script>
+
+    <script src="toDoModel.js"></script>
+    <script src="toDoCollection.js"></script>
+
+
+</head>
+<body>
+    <div id="todo_list_container"></div>
+
+    <script src="toDoView.js"></script>
+    <script src="newView.js"></script>
+    <script src="toDoRoutes.js"></script>
+</body>
+</html>
+
+<!-- for (int i = 0; i < todos.legnth; i++0) {
+    var t = todos[i];
+    console.log(t.element);
+}
+
+each (var t : todos) {
+    console.log(t.element);
+} -->
