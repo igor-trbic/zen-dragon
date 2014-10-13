@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <script src="https://code.jquery.com/jquery-1.8.2.min.js"> </script>
+    <script src="jquery-1.11.1.js"> </script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"> </script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"> </script>
 
@@ -11,30 +11,55 @@
         <input type="text" placeholder="Enter your todos here!" id="input_todo_list" autofocus value="" />
         <button id="input_button" >ADD todo</button>
     </form>
-        <ul id="ToDos">
+    <hr/>
+        <table id="ToDos" class="table stripped">
+            <thead>
+                <tr>
+                    <th>Todo task</th><th>Edit</th><th>Delete</th>
+                <tr>
+            </thead>
+            <tbody>
             <% _.each(colMod, function(n){ %>
-                <li><%- n.get('element')%></li>
+                <tr>
+                    <td><%- n.get('element')%></td>
+                    <td><button href="#edit" id="edit_button" data-id="<%= n.cid%>">Edit</td>
+                    <td><button id="delete_button" data-id="<%= n.cid %>">X</button></td>
+                </tr>
             <% })%>
-        </ul>
+            </tbody>
+        </table>
+    <hr/>
     <label><a href="#new">Go to new view</a></label>
     </script>
 
     <script type="text/template" id="new_template">
-    <h1>Im big head!</h1>
+    <h1>This is new page!</h1>
     <label><a href="">Go to old view</a></label>
+    </script>
+
+    <script type="text/template" id="edit_template">
+    <form>
+        <input type="text" id="edit_todo" autofocus value="<%= edit%>" />
+        <button id="edit_todo_button" >EDIT todo</button>
+    </form>
+    <hr/>
+    <label><a href="">Go to old view</a></label><br/>
+    <label><a href="#new">Go to new view</a></label>
     </script>
 
     <script src="toDoModel.js"></script>
     <script src="toDoCollection.js"></script>
 
-
 </head>
 <body>
     <div id="todo_list_container"></div>
 
+
     <script src="toDoView.js"></script>
     <script src="newView.js"></script>
+    <script src="editView.js"></script>
     <script src="toDoRoutes.js"></script>
+
 </body>
 </html>
 

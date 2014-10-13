@@ -3,16 +3,12 @@
 
 var ToDo = Backbone.Model.extend({
 
-    // defaults: function () {
-    //     return {order: toDoCollection.nextOrder()};
-    // },
-
     initialize: function () {
         console.log("ToDo MODEL has been made!");
     },
-    name: "NameUndeffined"
+    defaults: {
+        "element": "UndeffinedTODO"
+    }
 });
 
-var toDo = new ToDo({
-    element: "UndeffinedList!"
-});
+var toDo = new ToDo();
