@@ -10,3 +10,4 @@ var ToDoCollection = Backbone.Collection.extend({
         console.log("COLLECTION has been made!");
     }
 });
+var toDoCollection = new ToDoCollection();

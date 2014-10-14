@@ -3,6 +3,7 @@
 'use strict';
 
 var ToDoRouter = Backbone.Router.extend({
+
         routes: {
             "":     "home",
             "new":  "new",
@@ -16,19 +17,19 @@ var ToDoRouter = Backbone.Router.extend({
         },
 
         home: function () {
-            var toDoView = new ToDoView({model: toDo}),
+            var toDoView = new ToDoView({model: toDo, collection: toDoCollection}),
                 view  = toDoView.render();
             $("#todo_list_container").html(view.el);
             //view.el("#todo_list_container");
             console.log(view.el);
             console.log("OLD View rendered!");
         },
+
         edit: function () {
-            var editView = new EditView({model: forEdit}),
-                view = editView.render();
-            $("#todo_list_container").html(view.el);
+            console.log("You are on edit page!");
         }
-    });
+
+});
 
 var toDoRouter = new ToDoRouter();
 Backbone.history.start();
