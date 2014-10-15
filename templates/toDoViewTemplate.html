@@ -1,0 +1,25 @@
+<script type="text/template" id="todo_template">
+<form >
+    <input type="text" placeholder="Enter your todos here!" id="input_todo_list" autofocus value="" />
+    <button id="input_button" >ADD todo</button>
+</form>
+<hr/>
+    <table id="ToDos" class="table stripped">
+        <thead>
+            <tr>
+                <th>Todo task</th><th>Edit</th><th>Delete</th>
+            <tr>
+        </thead>
+        <tbody>
+        <% _.each(colMod, function(n){ %>
+            <tr>
+                <td><%- n.get('element')%></td>
+                <td><button href="#edit" id="edit_button" data-id="<%= n.cid%>">Edit</td>
+                <td><button id="delete_button" data-id="<%= n.cid %>">X</button></td>
+            </tr>
+        <% })%>
+        </tbody>
+    </table>
+<hr/>
+<label><a href="#new" >Go to new view</a></label>
+</script>
