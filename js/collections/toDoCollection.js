@@ -18,6 +18,5 @@ define ([
                 console.log("COLLECTION has been made!");
             }
         });
-        var toDoCollection = new ToDoCollection();
     return ToDoCollection;
 });

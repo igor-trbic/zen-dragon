@@ -8,6 +8,7 @@ define([
     ], function($, _, Backbone, ToDoRouter) {
         var initialize = function () {
             ToDoRouter.initialize();
+            console.log('asdasdasdas');
         }
 
         return {

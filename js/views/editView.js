@@ -6,7 +6,7 @@ define ([
     'jquery',
     'underscore',
     'backbone',
-    'text!../templates/editViewTemplate.html'
+    'text!templates/editViewTemplate.html'
 
     ], function ($, _, Backbone, editViewTemplate) {
 
@@ -46,5 +46,5 @@ define ([
             }
 
         });
-    return editViewTemplate;
+    return EditView;
 });

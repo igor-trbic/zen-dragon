@@ -18,6 +18,6 @@ define ([
             }
         });
 
-        var toDo = new ToDo();
+        // var toDo = new ToDo();
         return ToDo;
 });

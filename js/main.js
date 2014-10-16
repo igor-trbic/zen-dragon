@@ -7,12 +7,13 @@ require.config({
         jquery: 'libs/jquery/jquery',
         underscore: 'libs/underscore/underscore',
         backbone: 'libs/backbone/backbone',
-        app: 'app'
+        templates: '../templates'
     }
 });
 
 require([
     'app',
-    ], function(App){
+    ], function(App){ //ceka da ucita sve sto je u app.js
+
         App.initialize();
 });

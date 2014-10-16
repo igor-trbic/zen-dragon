@@ -7,7 +7,7 @@ define ([
     'jquery',
     'underscore',
     'backbone',
-    'text!../templates/newViewTemplate.html'
+    'text!templates/newViewTemplate.html'
 
     ], function ($, _, Backbone, newViewTemplate) {
 
@@ -29,5 +29,5 @@ define ([
         }
     });
 
-    return newViewTemplate;
+    return NewView;
 });

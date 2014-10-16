@@ -8,9 +8,12 @@ define ([
     'underscore',
     'backbone',
     'collections/toDoCollection',
-    'text!../templates/toDoViewTemplate.html'
+    'text!templates/toDoViewTemplate.html',
+    'models/toDoModel',
+    'views/editView'
 
-    ], function ($, _, Backbone, ToDoCollection, toDoViewTemplate) {
+
+    ], function ($, _, Backbone, ToDoCollection, toDoViewTemplate, ToDo, EditView) {
         var ToDoView = Backbone.View.extend({
 
             //el: $("#todo_list_container"),
@@ -18,14 +21,12 @@ define ([
             initialize: function () {
 
                 //this.render();
-                console.log(toDo);
                 console.log("VIEW have been made!");
             },
 
             render: function () {
-                var data = {},
-                    template = _.template(toDoViewTemplate, data);
-                this.$el.html(template({colMod: toDoCollection.models}));
+                var template = _.template(toDoViewTemplate);
+                this.$el.html(template({colMod: this.collection.models}));
                 console.log("RENDERED!");
                 return this;
             },
@@ -45,25 +46,25 @@ define ([
                 var toDoVar = this.$("#input_todo_list").val(),
                     toDo = new ToDo({element: toDoVar});
 
-                toDoCollection.add(toDo);
+                this.collection.add(toDo);
                 this.render();
                 this.$("#input_todo_list").focus();
-                console.log(toDoCollection.models);
+                console.log(this.collection.models);
                 //return false; // isto kao i event.preventDefault();
             },
 
             delete: function (event) {
                 console.log($(event.target).data('id'));
                 var pom;
-                _.each(toDoCollection.models, function (model) {
+                _.each(this.collection.models, function (model) {
                     console.log(model);
                     if ($(event.target).data('id') === model.cid) {
                         console.log("Deleting model with cid: " + model.cid);
                         pom = model;
                     }
                 });
-                toDoCollection.remove(pom);
-                console.log(toDoCollection.models);
+                this.collection.remove(pom);
+                console.log(this.collection.models);
                 console.log("Model OBRISAN");
                 this.render();
             },
@@ -72,19 +73,19 @@ define ([
                 event.preventDefault();
 
                 var forEditId = $(event.target).data('id'),
-                    newModel = toDoCollection.get(forEditId);
+                    newModel = this.collection.get(forEditId);
                 console.log("---------------------------");
                 console.log(forEditId);
                 console.log("---------------------------");
                 console.log(newModel);
                 console.log("---------------------------");
 
-                toDoRouter.navigate('#edit', {trigger: true});
+                window.toDoRouter.navigate('#edit', {trigger: true});
                 var editView = new EditView({model: newModel}),
                     view = editView.render();
                 $("#todo_list_container").html(view.el);
             }
         });
 
-    return toDoViewTemplate;
+    return ToDoView;
 });

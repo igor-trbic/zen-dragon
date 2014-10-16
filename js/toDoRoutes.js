@@ -8,11 +8,13 @@ define([
     'backbone',
     'views/editView',
     'views/newView',
-    'views/toDoView'
+    'views/toDoView',
+    'collections/toDoCollection'
 
-    ], function($, _, Backbone, EditView, NewView, ToDoView) {
+    ], function($, _, Backbone, EditView, NewView, ToDoView, ToDoCollection) {
 
-        var ToDoRouter = Backbone.Router.extend({
+        var toDoCollection = new ToDoCollection(),
+            ToDoRouter = Backbone.Router.extend({
 
             routes: {
                 "":     "home",
@@ -27,8 +29,9 @@ define([
             },
 
             home: function () {
-                var toDoView = new ToDoView({model: toDo, collection: toDoCollection}),
+                var toDoView = new ToDoView({collection: toDoCollection}),
                     view  = toDoView.render();
+                console.log($("#todo_list_container").length);
                 $("#todo_list_container").html(view.el);
                 //view.el("#todo_list_container");
                 console.log(view.el);
@@ -42,7 +45,7 @@ define([
 
         var initialize = function () {
 
-            var toDoRouter = new ToDoRouter();
+            window.toDoRouter = new ToDoRouter();
 
             Backbone.history.start();
         }
