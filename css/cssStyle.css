@@ -1,8 +1,10 @@
 body {
-    background-color: #E6E6E6;
+    color: #777;
+    margin: 10px 10px 10px 10px;
+    font-size: 16px;
 }
 input {
-    background-color: lightgray;
+    background-color: white;
     border-style: outset;
     border-color: black;
 }
